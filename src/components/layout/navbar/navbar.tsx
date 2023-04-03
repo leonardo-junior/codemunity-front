@@ -1,5 +1,3 @@
-import * as S from './navbar.styles'
-
 export const Navbar = () => {
-  return <S.Container>Acodemy</S.Container>
+  return <nav>Acodemy</nav>
 }

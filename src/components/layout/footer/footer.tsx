@@ -1,5 +1,3 @@
-import * as S from './footer.styles'
-
 export const Footer = () => {
-  return <S.Container>ZighTech</S.Container>
+  return <div className="flex items-center justify-center w-full">ZighTech</div>
 }

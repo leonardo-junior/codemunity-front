@@ -5,9 +5,6 @@ import Head from 'next/head'
 import { Navbar } from './navbar/navbar'
 import { Footer } from './footer/footer'
 
-// styles
-import * as S from './layout.styles'
-
 type LayoutProps = {
   children: React.ReactNode
   title: string
@@ -23,13 +20,13 @@ export const Layout = ({ children, title, description }: LayoutProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <S.Container>
+      <div className="flex flex-col min-h-screen w-full">
         <Navbar />
 
-        <S.Main>{children}</S.Main>
+        <main className="w-full h-full flex-grow">{children}</main>
 
         <Footer />
-      </S.Container>
+      </div>
     </>
   )
 }
