@@ -1,10 +1,11 @@
 import { Layout } from 'components/layout/layout'
+import { Home } from 'components/home/home'
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Layout title="Codemunity" description="Página principal">
-        <h1 className="text-4xl font-semibold">Home</h1>
+        <Home />
       </Layout>
     </>
   )
