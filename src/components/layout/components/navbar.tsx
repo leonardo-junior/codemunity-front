@@ -2,10 +2,16 @@ import Link from 'next/link'
 
 export const Navbar = () => {
   return (
-    <nav className="p-6 bg-gray-950  shadow-sm shadow-gray-50">
+    <nav className="flex justify-between px-12 py-6 bg-neutral-950">
       <div>
-        <Link className="text-2xl font-semibold text-gray-300" href="/">
+        <Link className="text-2xl font-semibold text-gray-200" href="/">
           Codemunity
+        </Link>
+      </div>
+
+      <div className="flex items-end">
+        <Link className="text-md font-semibold text-gray-400" href="/create">
+          Create
         </Link>
       </div>
     </nav>

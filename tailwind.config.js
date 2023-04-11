@@ -3,7 +3,12 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {},
+      aspectRatio: {
+        '16/9': '16/9',
+      },
+    },
     fontFamily: {
       'brand': 'Inter',
     },
