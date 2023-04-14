@@ -8,10 +8,10 @@ export type CourseSection = {
   id: number
   name: string
   courseId: number
-  classes: Class[]
+  classes: Lesson[]
 }
 
-export type Class = {
+export type Lesson = {
   id: number
   name: string
   url: string

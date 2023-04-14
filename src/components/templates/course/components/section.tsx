@@ -30,7 +30,7 @@ export const Section = ({ section }: SectionProps) => {
         {section.classes?.map((item) => (
           <Link
             key={item.id}
-            href={`/class/${item.id}`}
+            href={`/lessons/${item.id}`}
             className="text-gray-200"
             onClick={(event) => event.stopPropagation()}
           >
