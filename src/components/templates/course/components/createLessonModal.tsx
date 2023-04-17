@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createLessonService } from 'api/services/lessons/createLesson'
 import { Overlay } from 'components/atoms/overlay'
 import { useForm } from 'react-hook-form'
@@ -15,17 +15,22 @@ type CreateSectionModalProps = {
 
 export const CreateLessonModal = ({ courseSectionId, onClose }: CreateSectionModalProps) => {
   const { register, handleSubmit } = useForm<FormValues>()
-  const { mutate } = useMutation(createLessonService)
+  const { mutateAsync } = useMutation(createLessonService)
+  const queryClient = useQueryClient()
 
   async function createLesson({ className, urlVideo }: FormValues) {
     if (!className || !courseSectionId) return
 
-    mutate({ courseSectionId: +courseSectionId, name: className, url: urlVideo })
+    try {
+      await mutateAsync({ courseSectionId: +courseSectionId, name: className, url: urlVideo })
 
-    onClose()
+      queryClient.invalidateQueries(['course'])
+    } catch (error) {
+      console.log(error)
+    } finally {
+      onClose()
+    }
   }
-
-  // TODO refresh page when success without onSuccess
 
   return (
     <Overlay>

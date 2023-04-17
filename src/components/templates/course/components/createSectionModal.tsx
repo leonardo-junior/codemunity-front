@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createCourseSectionService } from 'api/services/courseSections/createCourseSection'
 import { Overlay } from 'components/atoms/overlay'
 import { useRouter } from 'next/router'
@@ -13,8 +13,12 @@ type CreateSectionModalProps = {
 }
 
 export const CreateSectionModal = ({ onClose }: CreateSectionModalProps) => {
+  const queryClient = useQueryClient()
+
   const { register, handleSubmit } = useForm<FormValues>()
-  const { mutate } = useMutation(createCourseSectionService)
+  const { mutateAsync } = useMutation({
+    mutationFn: createCourseSectionService,
+  })
   const router = useRouter()
 
   const courseId = router.query.courseId
@@ -22,12 +26,16 @@ export const CreateSectionModal = ({ onClose }: CreateSectionModalProps) => {
   async function createSection({ sectionName }: FormValues) {
     if (!sectionName || !courseId) return
 
-    mutate({ courseId: +courseId, name: sectionName })
+    try {
+      await mutateAsync({ courseId: +courseId, name: sectionName })
 
-    onClose()
+      queryClient.invalidateQueries(['course'])
+    } catch (error) {
+      console.log(error)
+    } finally {
+      onClose()
+    }
   }
-
-  // TODO refresh page when success without onSucess
 
   return (
     <Overlay>
