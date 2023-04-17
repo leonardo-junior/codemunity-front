@@ -15,4 +15,5 @@ export type Lesson = {
   id: number
   name: string
   url: string
+  courseSectionId: number
 }

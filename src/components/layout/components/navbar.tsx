@@ -9,18 +9,10 @@ export const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex gap-4">
-        <div className="flex items-end">
-          <Link className="text-md font-semibold text-gray-400" href="/courses">
-            Cursos
-          </Link>
-        </div>
-
-        <div className="flex items-end">
-          <Link className="text-md font-semibold text-gray-400" href="/create">
-            Criar
-          </Link>
-        </div>
+      <div className="flex items-end">
+        <Link className="text-md font-semibold text-gray-400" href="/courses">
+          Cursos
+        </Link>
       </div>
     </nav>
   )
