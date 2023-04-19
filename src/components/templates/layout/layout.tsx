@@ -27,8 +27,8 @@ export const Layout = ({ children, title, description }: LayoutProps) => {
       <div className="flex flex-col min-h-screen w-full  bg-neutral-900">
         <Navbar />
 
-        <main className="flex justify-center w-full h-full flex-col flex-grow px-12">
-          <div className="mx-auto w-full max-w-7xl">
+        <main className="flex justify-center w-full h-full flex-col grow px-6 md:px-8 xl:px-12">
+          <div className="mx-auto w-full max-w-7xl grow h-full">
             <h1 className="text-gray-300 text-lg" onClick={backPage}>
               Voltar
             </h1>
