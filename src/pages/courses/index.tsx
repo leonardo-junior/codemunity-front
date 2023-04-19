@@ -1,4 +1,4 @@
-import { Layout } from 'components/layout/layout'
+import { Layout } from 'components/templates/layout/layout'
 import { Courses } from 'components/templates/courses'
 
 export default function CoursesPage() {

@@ -11,10 +11,10 @@ export const CourseComponent = ({ course }: CourseProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <main className="flex flex-col gap-6 p-6">
+    <main className="flex flex-col gap-6">
       {isModalOpen && <CreateSectionModal onClose={() => setIsModalOpen(false)} />}
 
-      <div className="flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-semibold text-gray-200">Curso de {course.name}</h1>
 
         <h3 className="text-2xl font-semibold text-gray-200">Seções</h3>

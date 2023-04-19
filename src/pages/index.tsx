@@ -1,12 +1,10 @@
-import { Layout } from 'components/layout/layout'
-import { Home } from 'components/home/home'
+import { Layout } from 'components/templates/layout/layout'
+import { Courses } from 'components/templates/courses'
 
-export default function HomePage() {
+export default function CoursesPage() {
   return (
-    <>
-      <Layout title="Codemunity" description="Página principal">
-        <Home />
-      </Layout>
-    </>
+    <Layout title="Cursos" description="Página visualização de cursos">
+      <Courses />
+    </Layout>
   )
 }

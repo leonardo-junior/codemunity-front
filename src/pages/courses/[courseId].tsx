@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 
 // components
-import { Layout } from 'components/layout/layout'
+import { Layout } from 'components/templates/layout/layout'
 import { CourseComponent } from 'components/templates/course'
 
 // services
