@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { createCourseService } from 'api/services/courses/createCourse'
-import { Overlay } from 'components/atoms/overlay'
+import { Modal } from 'components/molecules/modal'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
@@ -28,17 +28,15 @@ export const CreateCourseModal = ({ onClose }: CreateCourseModalProps) => {
   }
 
   return (
-    <Overlay>
-      <div className="bg-slate-600 p-6 flex flex-col gap-4">
-        <button onClick={onClose}>Fechar</button>
-
-        <form className="p-6 flex flex-col gap-2" onSubmit={handleSubmit(createCourse)}>
+    <Modal onClose={onClose}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(createCourse)}>
+        <div className="flex flex-col w-full gap-2">
           <label className="text-gray-300">Nome do curso</label>
           <input {...register('courseName', { required: true, minLength: 4 })} />
+        </div>
 
-          <button>Criar</button>
-        </form>
-      </div>
-    </Overlay>
+        <button className="text-gray-300">Criar</button>
+      </form>
+    </Modal>
   )
 }

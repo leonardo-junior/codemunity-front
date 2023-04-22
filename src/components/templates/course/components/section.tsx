@@ -30,13 +30,13 @@ export const Section = ({ section }: SectionProps) => {
       )}
 
       <li
-        className={`bg-slate-800 rounded-md flex flex-col items-center justify-center px-6 py-4 ${
-          !isDropDownOpen && 'hover:bg-slate-600 hover:cursor-pointer'
+        className={`flex flex-col gap-4 px-6 py-4 bg-neutral-800 rounded-md ${
+          !isDropDownOpen && 'hover:bg-neutral-700 hover:cursor-pointer'
         }`}
         onClick={(event) => toggleDropDown(event)}
       >
         <div className="flex items-center gap-4">
-          <h2 className="text-xl text-gray-300 font-semibold">{section.name}</h2>
+          <h2 className="text-2xl text-gray-300 font-semibold">{section.name}</h2>
 
           <span className="text-xs text-gray-200">{section.classes.length}</span>
         </div>
@@ -46,14 +46,17 @@ export const Section = ({ section }: SectionProps) => {
             <Link
               key={item.id}
               href={`/lessons/${item.id}`}
-              className="text-gray-200 bg-slate-500 "
+              className="text-gray-200"
               onClick={(event) => event.stopPropagation()}
             >
-              {item.name}
+              <p>{item.name}</p>
             </Link>
           ))}
 
-          <button className="bg-slate-400 rounded line-clamp-1" onClick={(event) => openCreateModal(event)}>
+          <button
+            className="text-gray-200 py-2 px-8 bg-neutral-600 rounded-md w-max hover:bg-neutral-500"
+            onClick={(event) => openCreateModal(event)}
+          >
             Criar aula
           </button>
         </div>

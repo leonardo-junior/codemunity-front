@@ -11,7 +11,7 @@ export const CourseCard = ({ course }: CourseCardProps) => {
 
   return (
     <Link key={course.id} href={`/courses/${course.id}`} className="text-gray-200">
-      <li className="flex flex-col gap-4 justify-center bg-slate-800 rounded-md  p-4 hover:bg-slate-600 hover:cursor-pointer">
+      <li className="flex flex-col gap-4 justify-center bg-neutral-800 rounded-md p-4 hover:bg-neutral-700 hover:cursor-pointer">
         <p className="text-2xl font-semibold text-gray-200">{course.name}</p>
 
         <p className="text-gray-200">

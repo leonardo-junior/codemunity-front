@@ -21,7 +21,7 @@ export const Courses = () => {
 
       <button
         onClick={() => setIsModalOpen((prev) => !prev)}
-        className="text-gray-200 py-2 px-8 ml-auto bg-slate-600 rounded-md w-max hover:bg-slate-500"
+        className="text-gray-200 py-2 px-8 bg-neutral-600 rounded-md w-max hover:bg-neutral-500"
       >
         Criar curso
       </button>

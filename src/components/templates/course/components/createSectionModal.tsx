@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createCourseSectionService } from 'api/services/courseSections/createCourseSection'
-import { Overlay } from 'components/atoms/overlay'
+import { Modal } from 'components/molecules/modal'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
@@ -38,17 +38,15 @@ export const CreateSectionModal = ({ onClose }: CreateSectionModalProps) => {
   }
 
   return (
-    <Overlay>
-      <div className="bg-slate-600 p-6 flex flex-col gap-4">
-        <button onClick={onClose}>Fechar</button>
-
-        <form className="p-6 flex flex-col gap-2" onSubmit={handleSubmit(createSection)}>
+    <Modal onClose={onClose}>
+      <form className="flex flex-col gap-2" onSubmit={handleSubmit(createSection)}>
+        <div className="flex flex-col w-full gap-2">
           <label className="text-gray-300">Nome da sessão</label>
           <input {...register('sectionName', { required: true, minLength: 4 })} />
+        </div>
 
-          <button>Criar</button>
-        </form>
-      </div>
-    </Overlay>
+        <button className="text-gray-300">Criar</button>
+      </form>
+    </Modal>
   )
 }

@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createLessonService } from 'api/services/lessons/createLesson'
-import { Overlay } from 'components/atoms/overlay'
+import { Modal } from 'components/molecules/modal'
 import { useForm } from 'react-hook-form'
 
 type FormValues = {
@@ -33,20 +33,20 @@ export const CreateLessonModal = ({ courseSectionId, onClose }: CreateSectionMod
   }
 
   return (
-    <Overlay>
-      <div className="bg-slate-600 p-6 flex flex-col gap-4">
-        <button onClick={onClose}>Fechar</button>
-
-        <form className="p-6 flex flex-col gap-2" onSubmit={handleSubmit(createLesson)}>
+    <Modal onClose={onClose}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(createLesson)}>
+        <div className="flex flex-col w-full gap-2">
           <label className="text-gray-300">Nome da aula</label>
           <input {...register('className', { required: true, minLength: 4 })} />
+        </div>
 
+        <div className="flex flex-col w-full gap-2">
           <label className="text-gray-300">Link do video</label>
           <input {...register('urlVideo', { required: true, minLength: 4 })} />
+        </div>
 
-          <button>Criar</button>
-        </form>
-      </div>
-    </Overlay>
+        <button className="text-gray-300">Criar</button>
+      </form>
+    </Modal>
   )
 }
