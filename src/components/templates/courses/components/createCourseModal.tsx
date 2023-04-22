@@ -30,7 +30,7 @@ export const CreateCourseModal = ({ onClose }: CreateCourseModalProps) => {
   return (
     <Modal onClose={onClose}>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(createCourse)}>
-        <div className="flex flex-col w-full gap-2">
+        <div className="flex w-full flex-col gap-2">
           <label className="text-gray-300">Nome do curso</label>
           <input {...register('courseName', { required: true, minLength: 4 })} />
         </div>

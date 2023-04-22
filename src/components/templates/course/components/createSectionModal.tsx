@@ -40,7 +40,7 @@ export const CreateSectionModal = ({ onClose }: CreateSectionModalProps) => {
   return (
     <Modal onClose={onClose}>
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(createSection)}>
-        <div className="flex flex-col w-full gap-2">
+        <div className="flex w-full flex-col gap-2">
           <label className="text-gray-300">Nome da sessão</label>
           <input {...register('sectionName', { required: true, minLength: 4 })} />
         </div>

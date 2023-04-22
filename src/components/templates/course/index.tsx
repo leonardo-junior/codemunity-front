@@ -28,7 +28,7 @@ export const CourseComponent = ({ course }: CourseProps) => {
 
       <button
         onClick={() => setIsModalOpen((prev) => !prev)}
-        className="text-gray-200 py-2 px-8 bg-neutral-600 rounded-md w-max hover:bg-neutral-500"
+        className="w-max rounded-md bg-neutral-600 px-8 py-2 text-gray-200 hover:bg-neutral-500"
       >
         Criar seção
       </button>

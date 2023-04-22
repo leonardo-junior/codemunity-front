@@ -13,7 +13,7 @@ export const Courses = () => {
     <main className="flex flex-col gap-6">
       <h1 className="text-4xl font-semibold text-gray-200">Cursos</h1>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {data?.map((course) => (
           <CourseCard key={course.id} course={course} />
         ))}
@@ -21,7 +21,7 @@ export const Courses = () => {
 
       <button
         onClick={() => setIsModalOpen((prev) => !prev)}
-        className="text-gray-200 py-2 px-8 bg-neutral-600 rounded-md w-max hover:bg-neutral-500"
+        className="w-max rounded-md bg-neutral-600 px-8 py-2 text-gray-200 hover:bg-neutral-500"
       >
         Criar curso
       </button>

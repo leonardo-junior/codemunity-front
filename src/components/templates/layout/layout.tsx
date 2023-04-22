@@ -24,12 +24,12 @@ export const Layout = ({ children, title, description }: LayoutProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="flex flex-col min-h-screen w-full  bg-neutral-900">
+      <div className="flex min-h-screen w-full flex-col  bg-neutral-900">
         <Navbar />
 
-        <main className="flex justify-center w-full h-full flex-col grow px-6 md:px-8 xl:px-12">
-          <div className="mx-auto w-full max-w-7xl grow h-full">
-            <h1 className="text-gray-300 text-lg" onClick={backPage}>
+        <main className="flex h-full w-full grow flex-col justify-center px-6 md:px-8 xl:px-12">
+          <div className="mx-auto h-full w-full max-w-7xl grow">
+            <h1 className="text-lg text-gray-300" onClick={backPage}>
               Voltar
             </h1>
 

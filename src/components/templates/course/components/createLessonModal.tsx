@@ -35,12 +35,12 @@ export const CreateLessonModal = ({ courseSectionId, onClose }: CreateSectionMod
   return (
     <Modal onClose={onClose}>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(createLesson)}>
-        <div className="flex flex-col w-full gap-2">
+        <div className="flex w-full flex-col gap-2">
           <label className="text-gray-300">Nome da aula</label>
           <input {...register('className', { required: true, minLength: 4 })} />
         </div>
 
-        <div className="flex flex-col w-full gap-2">
+        <div className="flex w-full flex-col gap-2">
           <label className="text-gray-300">Link do video</label>
           <input {...register('urlVideo', { required: true, minLength: 4 })} />
         </div>

@@ -1,3 +1,3 @@
 export const Footer = () => {
-  return <div className="flex p-2 items-center justify-center w-full text-gray-300">ZighTech</div>
+  return <div className="flex w-full items-center justify-center p-2 text-gray-300">ZighTech</div>
 }

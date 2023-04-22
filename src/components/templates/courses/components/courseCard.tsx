@@ -11,7 +11,7 @@ export const CourseCard = ({ course }: CourseCardProps) => {
 
   return (
     <Link key={course.id} href={`/courses/${course.id}`} className="text-gray-200">
-      <li className="flex flex-col gap-4 justify-center bg-neutral-800 rounded-md p-4 hover:bg-neutral-700 hover:cursor-pointer">
+      <li className="flex flex-col justify-center gap-4 rounded-md bg-neutral-800 p-4 hover:cursor-pointer hover:bg-neutral-700">
         <p className="text-2xl font-semibold text-gray-200">{course.name}</p>
 
         <p className="text-gray-200">
@@ -20,7 +20,7 @@ export const CourseCard = ({ course }: CourseCardProps) => {
           illum, consequatur dolorum.
         </p>
 
-        <ul className="flex gap-2 flex-wrap">
+        <ul className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
             <Tag key={index} name={tag} />
           ))}

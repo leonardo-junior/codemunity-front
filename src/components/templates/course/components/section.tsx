@@ -30,13 +30,13 @@ export const Section = ({ section }: SectionProps) => {
       )}
 
       <li
-        className={`flex flex-col gap-4 px-6 py-4 bg-neutral-800 rounded-md ${
-          !isDropDownOpen && 'hover:bg-neutral-700 hover:cursor-pointer'
+        className={`flex flex-col gap-4 rounded-md bg-neutral-800 px-6 py-4 ${
+          !isDropDownOpen && 'hover:cursor-pointer hover:bg-neutral-700'
         }`}
         onClick={(event) => toggleDropDown(event)}
       >
         <div className="flex items-center gap-4">
-          <h2 className="text-2xl text-gray-300 font-semibold">{section.name}</h2>
+          <h2 className="text-2xl font-semibold text-gray-300">{section.name}</h2>
 
           <span className="text-xs text-gray-200">{section.classes.length}</span>
         </div>
@@ -54,7 +54,7 @@ export const Section = ({ section }: SectionProps) => {
           ))}
 
           <button
-            className="text-gray-200 py-2 px-8 bg-neutral-600 rounded-md w-max hover:bg-neutral-500"
+            className="w-max rounded-md bg-neutral-600 px-8 py-2 text-gray-200 hover:bg-neutral-500"
             onClick={(event) => openCreateModal(event)}
           >
             Criar aula
