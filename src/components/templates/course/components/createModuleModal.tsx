@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createModuleService } from 'api/services/modules/createModule'
+import { Button } from 'components/atoms/button'
 import { Modal } from 'components/molecules/modal'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
@@ -39,13 +40,13 @@ export const CreateModuleModal = ({ onClose }: CreateModuleModalProps) => {
 
   return (
     <Modal onClose={onClose}>
-      <form className="flex flex-col gap-2" onSubmit={handleSubmit(createModule)}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(createModule)}>
         <div className="flex w-full flex-col gap-2">
           <label className="text-gray-300">Nome da sessão</label>
           <input {...register('moduleName', { required: true, minLength: 4 })} />
         </div>
 
-        <button className="text-gray-300">Criar</button>
+        <Button className="bg-neutral-500 hover:bg-neutral-400">Criar</Button>
       </form>
     </Modal>
   )

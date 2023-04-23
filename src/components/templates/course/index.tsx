@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ModuleComponent } from './components/module'
 import { CreateModuleModal } from './components/createModuleModal'
 import type { Course } from 'api/types'
+import { Button } from 'components/atoms/button'
 
 type CourseProps = {
   course: Course
@@ -26,12 +27,7 @@ export const CourseComponent = ({ course }: CourseProps) => {
         </ul>
       </div>
 
-      <button
-        onClick={() => setIsModalOpen((prev) => !prev)}
-        className="w-max rounded-md bg-neutral-600 px-8 py-2 text-gray-200 hover:bg-neutral-500"
-      >
-        Criar seção
-      </button>
+      <Button onClick={() => setIsModalOpen((prev) => !prev)}>Criar seção</Button>
     </main>
   )
 }

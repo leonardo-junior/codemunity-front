@@ -4,6 +4,7 @@ import { getAllCoursesService } from 'api/services/courses/getAllCourses'
 import { CreateCourseModal } from './components/createCourseModal'
 import type { Course } from 'api/types'
 import { CourseCard } from './components/courseCard'
+import { Button } from 'components/atoms/button'
 
 export const Courses = () => {
   const { data } = useQuery<Course[]>(['courses'], getAllCoursesService)
@@ -19,12 +20,7 @@ export const Courses = () => {
         ))}
       </ul>
 
-      <button
-        onClick={() => setIsModalOpen((prev) => !prev)}
-        className="w-max rounded-md bg-neutral-600 px-8 py-2 text-gray-200 hover:bg-neutral-500"
-      >
-        Criar curso
-      </button>
+      <Button onClick={() => setIsModalOpen((prev) => !prev)}>Criar curso</Button>
 
       {isModalOpen && <CreateCourseModal onClose={() => setIsModalOpen(false)} />}
     </main>

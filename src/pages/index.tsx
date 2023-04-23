@@ -3,7 +3,7 @@ import { Courses } from 'components/templates/courses'
 
 export default function CoursesPage() {
   return (
-    <Layout title="Cursos" description="Página visualização de cursos">
+    <Layout title="Cursos" description="Página visualização de cursos" hasBackPage={false}>
       <Courses />
     </Layout>
   )

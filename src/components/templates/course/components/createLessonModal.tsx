@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createLessonService } from 'api/services/lessons/createLesson'
+import { Button } from 'components/atoms/button'
 import { Modal } from 'components/molecules/modal'
 import { useForm } from 'react-hook-form'
 
@@ -45,7 +46,7 @@ export const CreateLessonModal = ({ moduleId: moduleId, onClose }: CreateLessonM
           <input {...register('urlVideo', { required: true, minLength: 4 })} />
         </div>
 
-        <button className="text-gray-300">Criar</button>
+        <Button className="bg-neutral-500 hover:bg-neutral-400">Criar</Button>
       </form>
     </Modal>
   )

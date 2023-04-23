@@ -9,12 +9,6 @@ export const Navbar = () => {
             Codemunity
           </Link>
         </div>
-
-        <div className="flex items-end">
-          <Link className="text-md font-semibold text-gray-400" href="/courses">
-            Cursos
-          </Link>
-        </div>
       </div>
     </nav>
   )

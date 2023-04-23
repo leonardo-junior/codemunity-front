@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { createCourseService } from 'api/services/courses/createCourse'
+import { Button } from 'components/atoms/button'
 import { Modal } from 'components/molecules/modal'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
@@ -35,7 +36,7 @@ export const CreateCourseModal = ({ onClose }: CreateCourseModalProps) => {
           <input {...register('courseName', { required: true, minLength: 4 })} />
         </div>
 
-        <button className="text-gray-300">Criar</button>
+        <Button className="bg-neutral-500 hover:bg-neutral-400">Criar</Button>
       </form>
     </Modal>
   )

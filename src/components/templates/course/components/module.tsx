@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { CreateLessonModal } from './createLessonModal'
 import { Module } from 'api/types'
+import { Button } from 'components/atoms/button'
 
 type ModuleComponentProps = {
   module: Module
@@ -51,12 +52,7 @@ export const ModuleComponent = ({ module }: ModuleComponentProps) => {
             </Link>
           ))}
 
-          <button
-            className="w-max rounded-md bg-neutral-600 px-8 py-2 text-gray-200 hover:bg-neutral-500"
-            onClick={(event) => openCreateModal(event)}
-          >
-            Criar aula
-          </button>
+          <Button onClick={(event) => openCreateModal(event)}>Criar aula</Button>
         </div>
       </li>
     </>
