@@ -1,0 +1,8 @@
+{
+  // "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  "eslint.rules.customizations": [
+    { "rule": "*", "severity": "info" },
+    { "rule": "prettier/prettier", "severity": "off" },
+  ],
+  "tailwindCSS.colorDecorators": false
+}
