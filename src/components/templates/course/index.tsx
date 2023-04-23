@@ -18,7 +18,11 @@ export const CourseComponent = ({ course }: CourseProps) => {
       <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-semibold text-gray-200">Curso de {course.name}</h1>
 
-        <h3 className="text-2xl font-semibold text-gray-200">Seções</h3>
+        <h3 className="text-2xl font-semibold text-gray-200">Módulo{course.modules.length !== 1 && 's'}</h3>
+
+        {course.modules.length === 0 && (
+          <p className="text-md font-semibold text-gray-200">Ainda não possui nenhum módulo</p>
+        )}
 
         <ul className="flex flex-col gap-4">
           {course.modules?.map((module) => (
@@ -27,7 +31,7 @@ export const CourseComponent = ({ course }: CourseProps) => {
         </ul>
       </div>
 
-      <Button onClick={() => setIsModalOpen((prev) => !prev)}>Criar seção</Button>
+      <Button onClick={() => setIsModalOpen((prev) => !prev)}>Criar módulo</Button>
     </main>
   )
 }

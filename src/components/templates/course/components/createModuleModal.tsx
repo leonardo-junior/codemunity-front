@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createModuleService } from 'api/services/modules/createModule'
 import { Button } from 'components/atoms/button'
+import { Loading } from 'components/atoms/loading'
 import { Modal } from 'components/molecules/modal'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
@@ -17,7 +18,7 @@ export const CreateModuleModal = ({ onClose }: CreateModuleModalProps) => {
   const queryClient = useQueryClient()
 
   const { register, handleSubmit } = useForm<FormValues>()
-  const { mutateAsync } = useMutation({
+  const { mutateAsync, isLoading } = useMutation({
     mutationFn: createModuleService,
   })
   const router = useRouter()
@@ -38,11 +39,13 @@ export const CreateModuleModal = ({ onClose }: CreateModuleModalProps) => {
     }
   }
 
+  if (isLoading) return <Loading />
+
   return (
     <Modal onClose={onClose}>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(createModule)}>
         <div className="flex w-full flex-col gap-2">
-          <label className="text-gray-300">Nome da sessão</label>
+          <label className="text-gray-300">Nome do módulo</label>
           <input {...register('moduleName', { required: true, minLength: 4 })} />
         </div>
 

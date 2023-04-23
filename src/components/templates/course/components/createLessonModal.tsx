@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createLessonService } from 'api/services/lessons/createLesson'
 import { Button } from 'components/atoms/button'
+import { Loading } from 'components/atoms/loading'
 import { Modal } from 'components/molecules/modal'
 import { useForm } from 'react-hook-form'
 
@@ -16,7 +17,7 @@ type CreateLessonModalProps = {
 
 export const CreateLessonModal = ({ moduleId: moduleId, onClose }: CreateLessonModalProps) => {
   const { register, handleSubmit } = useForm<FormValues>()
-  const { mutateAsync } = useMutation(createLessonService)
+  const { mutateAsync, isLoading } = useMutation(createLessonService)
   const queryClient = useQueryClient()
 
   async function createLesson({ className, urlVideo }: FormValues) {
@@ -32,6 +33,8 @@ export const CreateLessonModal = ({ moduleId: moduleId, onClose }: CreateLessonM
       onClose()
     }
   }
+
+  if (isLoading) return <Loading />
 
   return (
     <Modal onClose={onClose}>

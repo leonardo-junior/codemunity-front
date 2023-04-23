@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 // components
 import { Layout } from 'components/templates/layout/layout'
+import { Loading } from 'components/atoms/loading'
 
 // services
 import { getLessonById } from 'api/services/lessons/getLessonById'
@@ -22,7 +23,7 @@ export default function LessonPage() {
 
   return (
     <Layout title={`Curso de ${data?.name}`} description={`Página do curso de ${data?.name}`}>
-      {isLoading || !data ? <div>Carregando...</div> : <LessonComponent lesson={data} />}
+      {isLoading || !data ? <Loading /> : <LessonComponent lesson={data} />}
     </Layout>
   )
 }

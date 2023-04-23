@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 // components
 import { Layout } from 'components/templates/layout/layout'
 import { CourseComponent } from 'components/templates/course'
+import { Loading } from 'components/atoms/loading'
 
 // services
 import { getCourseById } from 'api/services/courses/getCourseById'
@@ -22,7 +23,7 @@ export default function CoursePage() {
 
   return (
     <Layout title={`Curso de ${data?.name}`} description={`Página do curso de ${data?.name}`}>
-      {isLoading || !data ? <div>Carregando...</div> : <CourseComponent course={data} />}
+      {isLoading || !data ? <Loading /> : <CourseComponent course={data} />}
     </Layout>
   )
 }
