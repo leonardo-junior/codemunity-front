@@ -8,21 +8,21 @@ type FormValues = {
   urlVideo: string
 }
 
-type CreateSectionModalProps = {
-  courseSectionId: number
+type CreateLessonModalProps = {
+  moduleId: string
   onClose: () => void
 }
 
-export const CreateLessonModal = ({ courseSectionId, onClose }: CreateSectionModalProps) => {
+export const CreateLessonModal = ({ moduleId: moduleId, onClose }: CreateLessonModalProps) => {
   const { register, handleSubmit } = useForm<FormValues>()
   const { mutateAsync } = useMutation(createLessonService)
   const queryClient = useQueryClient()
 
   async function createLesson({ className, urlVideo }: FormValues) {
-    if (!className || !courseSectionId) return
+    if (!className || !moduleId) return
 
     try {
-      await mutateAsync({ courseSectionId: +courseSectionId, name: className, url: urlVideo })
+      await mutateAsync({ moduleId, name: className, url: urlVideo })
 
       queryClient.invalidateQueries(['course'])
     } catch (error) {

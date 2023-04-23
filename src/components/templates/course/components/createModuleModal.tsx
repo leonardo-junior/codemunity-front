@@ -1,33 +1,33 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { createCourseSectionService } from 'api/services/courseSections/createCourseSection'
+import { createModuleService } from 'api/services/modules/createModule'
 import { Modal } from 'components/molecules/modal'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
 type FormValues = {
-  sectionName: string
+  moduleName: string
 }
 
-type CreateSectionModalProps = {
+type CreateModuleModalProps = {
   onClose: () => void
 }
 
-export const CreateSectionModal = ({ onClose }: CreateSectionModalProps) => {
+export const CreateModuleModal = ({ onClose }: CreateModuleModalProps) => {
   const queryClient = useQueryClient()
 
   const { register, handleSubmit } = useForm<FormValues>()
   const { mutateAsync } = useMutation({
-    mutationFn: createCourseSectionService,
+    mutationFn: createModuleService,
   })
   const router = useRouter()
 
-  const courseId = router.query.courseId
+  const courseId = router.query.courseId as string
 
-  async function createSection({ sectionName }: FormValues) {
-    if (!sectionName || !courseId) return
+  async function createModule({ moduleName }: FormValues) {
+    if (!moduleName || !courseId) return
 
     try {
-      await mutateAsync({ courseId: +courseId, name: sectionName })
+      await mutateAsync({ courseId: courseId, name: moduleName })
 
       queryClient.invalidateQueries(['course'])
     } catch (error) {
@@ -39,10 +39,10 @@ export const CreateSectionModal = ({ onClose }: CreateSectionModalProps) => {
 
   return (
     <Modal onClose={onClose}>
-      <form className="flex flex-col gap-2" onSubmit={handleSubmit(createSection)}>
+      <form className="flex flex-col gap-2" onSubmit={handleSubmit(createModule)}>
         <div className="flex w-full flex-col gap-2">
           <label className="text-gray-300">Nome da sessão</label>
-          <input {...register('sectionName', { required: true, minLength: 4 })} />
+          <input {...register('moduleName', { required: true, minLength: 4 })} />
         </div>
 
         <button className="text-gray-300">Criar</button>

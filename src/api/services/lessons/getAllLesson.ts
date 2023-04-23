@@ -3,7 +3,7 @@ import { api } from 'api'
 import type { Lesson } from 'api/types'
 
 export const getAllLessonsService = async () => {
-  const { data }: AxiosResponse<Lesson[]> = await api.get(`/classes`)
+  const { data }: AxiosResponse<Lesson[]> = await api.get(`/lessons`)
 
   return data
 }

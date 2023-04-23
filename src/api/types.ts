@@ -1,19 +1,19 @@
 export type Course = {
-  id: number
+  id: string
   name: string
-  courseSections: CourseSection[]
+  modules: Module[]
 }
 
-export type CourseSection = {
-  id: number
+export type Module = {
+  id: string
   name: string
-  courseId: number
-  classes: Lesson[]
+  courseId: string
+  lessons: Lesson[]
 }
 
 export type Lesson = {
-  id: number
+  id: string
   name: string
   url: string
-  courseSectionId: number
+  moduleId: string
 }

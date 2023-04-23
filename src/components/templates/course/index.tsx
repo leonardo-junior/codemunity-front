@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Section } from './components/section'
-import { CreateSectionModal } from './components/createSectionModal'
+import { ModuleComponent } from './components/module'
+import { CreateModuleModal } from './components/createModuleModal'
 import type { Course } from 'api/types'
 
 type CourseProps = {
@@ -12,7 +12,7 @@ export const CourseComponent = ({ course }: CourseProps) => {
 
   return (
     <main className="flex flex-col gap-6">
-      {isModalOpen && <CreateSectionModal onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && <CreateModuleModal onClose={() => setIsModalOpen(false)} />}
 
       <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-semibold text-gray-200">Curso de {course.name}</h1>
@@ -20,8 +20,8 @@ export const CourseComponent = ({ course }: CourseProps) => {
         <h3 className="text-2xl font-semibold text-gray-200">Seções</h3>
 
         <ul className="flex flex-col gap-4">
-          {course.courseSections?.map((section) => (
-            <Section key={section.id} section={section} />
+          {course.modules?.map((module) => (
+            <ModuleComponent key={module.id} module={module} />
           ))}
         </ul>
       </div>
