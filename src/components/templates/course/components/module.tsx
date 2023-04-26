@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import { CreateLessonModal } from './createLessonModal'
+import { CreateLessonModal } from './createLesson'
 import { Module } from 'api/types'
 import { Button } from 'components/atoms/button'
+import { CreateLessonsByPlaylistModal } from './createLessonsByPlaylistModal'
+import { Modal } from 'components/molecules/modal'
 
 type ModuleComponentProps = {
   module: Module
@@ -10,7 +12,8 @@ type ModuleComponentProps = {
 
 export const ModuleComponent = ({ module }: ModuleComponentProps) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isCreateLessonModalOpen, setIsCreateLessonModalOpen] = useState(false)
+  const [isAddLessonByPlaylistOpen, setIsAddLessonByPlaylistOpen] = useState(false)
 
   function toggleDropDown(event: React.MouseEvent<HTMLLIElement, MouseEvent>) {
     event.stopPropagation()
@@ -21,12 +24,23 @@ export const ModuleComponent = ({ module }: ModuleComponentProps) => {
   function openCreateModal(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.stopPropagation()
 
-    setIsModalOpen(true)
+    setIsCreateLessonModalOpen(true)
   }
 
   return (
     <>
-      {isModalOpen && <CreateLessonModal moduleId={module.id} onClose={() => setIsModalOpen(false)} />}
+      {isCreateLessonModalOpen && (
+        <Modal onClose={() => setIsCreateLessonModalOpen(false)}>
+          <CreateLessonModal moduleId={module.id} onClose={() => setIsCreateLessonModalOpen(false)} />
+        </Modal>
+      )}
+
+      {isAddLessonByPlaylistOpen && (
+        <CreateLessonsByPlaylistModal
+          moduleId={module.id}
+          onClose={() => setIsAddLessonByPlaylistOpen(false)}
+        />
+      )}
 
       <li
         className={`flex flex-col gap-4 rounded-md bg-neutral-800 px-6 py-4 ${
@@ -53,6 +67,8 @@ export const ModuleComponent = ({ module }: ModuleComponentProps) => {
           ))}
 
           <Button onClick={(event) => openCreateModal(event)}>Criar aula</Button>
+
+          <Button onClick={() => setIsAddLessonByPlaylistOpen(true)}>Criar de playlist</Button>
         </div>
       </li>
     </>

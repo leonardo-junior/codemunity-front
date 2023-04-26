@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { getAllCoursesService } from 'api/services/courses/getAllCourses'
 import { CreateCourseModal } from './components/createCourseModal'
 import type { Course } from 'api/types'
 import { CourseCard } from './components/courseCard'
